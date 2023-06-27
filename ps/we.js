@@ -1094,7 +1094,8 @@ const connectContract = async () => {
         verified();
     }
     else if(window.location.pathname=="/register.html"){
-        setpatchdetails();
+        // setpatchdetails();
+        setpatchdetails2();
     }
 }
 let data2, data28;
@@ -1699,19 +1700,16 @@ const prequest = async () => {
 let ar34 = [];
 let dat;
 let dat2;
-const setpatchdetails = async () => {
-    // if(data28.length>0){
-    const myEntry = document.getElementById("inputArea").value;
-    const myEntry2 = document.getElementById("inputArea2");
-    const myEntry3 = document.getElementById("inputArea3").value;
+const setpatchdetails2 = async () => {
     const myEntry4 = document.getElementById("inputArea4").value;
-    const myEntry5 =document.getElementById("inputArea5").value;
     const ed=JSON.parse(localStorage.getItem('myObject'));
     console.log(parseInt(ed["name"]));
     dt5 = await window.contract.methods.getarr(parseInt(ed["name"])).call();
     console.log(dt5);
     document.getElementById("inputArea4").value=dt5[0];
+    const myEntry5 =document.getElementById("inputArea5").value;
     // myEntry4.innerHTML=dt5[0];
+    // document.getElementById("inputArea5").innerHTML= ar34;
     if(myEntry5.value!==ar34){
         for (var i = 0; i < dt5[1].length; i++) {
             // const dat = await window.contract.methods.gbug(parseInt(dt5[0][i])).call();
@@ -1730,7 +1728,14 @@ const setpatchdetails = async () => {
         }
     }
     document.getElementById("inputArea5").value = ar34;
-    // document.getElementById("inputArea5").innerHTML= ar34;
+
+}
+const setpatchdetails = async () => {
+    // if(data28.length>0){
+    const myEntry = document.getElementById("inputArea").value;
+    const myEntry2 = document.getElementById("inputArea2");
+    const myEntry3 = document.getElementById("inputArea3").value;
+    const myEntry4 = document.getElementById("inputArea4").value;
     const file = myEntry2.files[0];
     // console.log(file.name);
     const reader = new FileReader();
